@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/navigation-components/Navigation.astro';
+import Header from '../components/navigation-components/Header.astro';
+
+import TopContainer from '../components/top-components/TopContainer.astro';
+import WorksContainer from '../components/top-components/WorksContainer.astro';
+import FeatureContainer from '../components/top-components/FeatureContainer.astro';
+import ServiceContainer from '../components/top-components/ServiceContainer.astro';
+
+const pageTitle = "蓼食う本の虫制作室 | Web制作・Wb担当者代行";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} >
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+
+	<Header />
+
+	<TopContainer />
+  <div class="marquee">
+  <div class="marquee-inner">Design Dev SEO Writing Edit Photo Design Dev SEO Writing Edit Photo</div>
+  <div class="marquee-inner" aria-hidden="true">Design Dev SEO Writing Edit Photo Design Dev SEO Writing Edit Photo</div>
+</div>
+	<WorksContainer />
+  <FeatureContainer />
+  <ServiceContainer />
+
+	<Navigation />
+	
+</body>
+</html>
+
+<style>
+  .marquee {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  gap: 1rem;
+  font-size: 3rem;
+  margin-top: -200px;
+  background-color: black;
+  color: white;
+  font-style: italic;
+  padding: 12px 0;
+}
+.marquee-inner {
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { translate: 0; }
+  100% { translate: calc(-100% - 1rem); }
+}
+</style>
