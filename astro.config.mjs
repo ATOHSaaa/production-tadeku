@@ -6,5 +6,3 @@ export default defineConfig({
     site: 'https://ATOHSaaa.github.io',
   base: 'production-tadeku',
 });
-
-
