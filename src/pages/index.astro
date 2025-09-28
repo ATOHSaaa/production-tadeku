@@ -8,21 +8,12 @@ import WorksContainer from '../components/top-components/WorksContainer.astro';
 import FeatureContainer from '../components/top-components/FeatureContainer.astro';
 import ServiceContainer from '../components/top-components/ServiceContainer.astro';
 
-const pageTitle = "蓼食う本の虫制作室 | Web制作・Wb担当者代行";
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "蓼食う本の虫制作室 - Webを中心にさまざまなクリエイティブを提供する制作プロダクション";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>{pageTitle}</title>
-  </head>
-  <body>
 
-	<Header />
-
+<BaseLayout pageTitle={pageTitle}>
 	<TopContainer />
   <div class="marquee">
   <div class="marquee-inner">Design Dev SEO Writing Edit Photo Design Dev SEO Writing Edit Photo</div>
@@ -31,11 +22,7 @@ const pageTitle = "蓼食う本の虫制作室 | Web制作・Wb担当者代行";
 	<WorksContainer />
   <FeatureContainer />
   <ServiceContainer />
-
-	<Navigation />
-	
-</body>
-</html>
+</BaseLayout>
 
 <style>
   .marquee {
