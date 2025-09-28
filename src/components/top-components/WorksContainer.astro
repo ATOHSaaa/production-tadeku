@@ -1,8 +1,13 @@
-	<div class="works-container">
+---
+import { Image } from 'astro:assets';
+import TadekuImage from "./src/assets/tadeku.png";
+---
+
+<div class="works-container">
 		<h2>つくったもの<br /><span>WORKS</span></h2>
 		<div class="works-list">
             <div class="works-list-item">
-                <img src="../src/assets/tadeku.png" alt="tadeku-screenshot" />
+                <Image src={TadekuImage} alt="画像の説明。" />
                 <p class="works-list-item-title">蓼食う本の虫</p>
                 <p class="works-list-item-category">Webサイト / 記事制作 / SNS運用</p>
             </div>
