@@ -3,6 +3,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://ATOHSaaa.github.io',
-  base: 'production-tadeku',
+    site: `https://production.tadeku.net`
 });
