@@ -279,3 +279,48 @@ p {
     margin-top: 24px;
 }
 
+  .marquee {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  gap: 1rem;
+  font-size: 3rem;
+  margin-top: -200px;
+  background-color: black;
+  color: white;
+  font-style: italic;
+  padding: 12px 0;
+}
+.marquee-inner {
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { translate: 0; }
+  100% { translate: calc(-100% - 1rem); }
+}
+
+@media screen and (max-width: 768px) {
+    .top-grid-container {
+        display: block;
+    }
+
+    .marquee {
+        margin-top: 80px;
+    }
+
+ 
+
+    .service-list-item {
+    width: 100%;
+    }
+
+    .works-list {
+        justify-content: center;
+    }
+
+    .works-list-item {
+        width: 90%;
+        margin-bottom:  36px;
+    }
+}
