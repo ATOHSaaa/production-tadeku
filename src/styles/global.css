@@ -41,9 +41,10 @@ p {
 
 .top-grid-container {
     display: grid;
-    grid-template-columns: 240px 200px 660px;
+    grid-template-columns: 240px 200px auto;
     grid-template-rows: 1fr;
     margin-top: 100px;
+    padding: 0 24px;
 }
 
 .top-grid-copy-box {
@@ -99,6 +100,7 @@ p {
 .works-container {
     max-width: 1080px;
     margin: 80px auto;
+    padding: 0 16px;
 }
 
 .works-container h2 {
@@ -147,6 +149,7 @@ p {
 .feature-container {
     margin: -60px auto;
     background-color: #89B976;
+    padding: 0 16px;
 }
 
 .feature-line {
@@ -178,25 +181,9 @@ p {
     border-radius: 16px;
     background-color: white;
     padding: 24px;
-    display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
-}
-
-.feature-list-item-image {
-    width: 30%;
-}
-
-.feature-list-item-image img{
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.feature-list-item-text {
-    width: 68%;
-    font-size: 1.1em;
+     font-size: 1.1em;
     line-height: 1.8;
 }
 
@@ -209,8 +196,13 @@ p {
     top: -11px;
 }
 
+.feature-list-item-text p {
+    margin-top: 16px;
+}
+
 .service-container {
     background-color: #FF6D35;
+    padding: 0 16px;
 }
 
 .service-line {
@@ -323,4 +315,6 @@ p {
         width: 90%;
         margin-bottom:  36px;
     }
+
+
 }
