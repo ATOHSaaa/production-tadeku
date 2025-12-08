@@ -292,6 +292,11 @@ p {
     max-width: 1080px;
     margin: 0 auto;
 } 
+
+.page-container h1 {
+    letter-spacing: .05em;
+}
+
 .page-container h2 {
     font-size: 1.8rem;
     letter-spacing: .1em;

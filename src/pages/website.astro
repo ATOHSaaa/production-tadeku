@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/navigation-components/Navigation.astro';
+import Header from '../components/navigation-components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Webサイト制作 - 蓼食う本の虫制作室";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="page-container">
+      <h1>Webサイト制作</h1>
+      <p>
+        法人や団体の名刺代わりとなるようなWebサイトの制作を承っております。企画・設計からデザイン、コーディング、その後の保守運用まで一貫して対応いたします。
+        <p>
+            更新方法が分からないという場合も、保守運用費の中にサポートを含めることが可能ですので、ご安心ください。
+        </p>
+        <p>
+            盛り込む内容については、既存のチラシやパンフレットなどがあれば、それらを参考にしながら進めてまいります。新たに取材やライティングが必要な場合も対応いたしますので、ご相談ください。
+        </p>
+        <p>
+            特にご指定がなければ、お客様でお知らせなどの更新が可能なように、WordPressにて制作いたします。ご希望があれば、STUDIOやWixなどのノーコードツールでの制作も対応可能です。静的なWebサイトをご希望の場合は、Astroなどの静的サイトジェネレーターを用いて制作いたします。
+        </p>
+
+        <h2>料金について</h2>
+        <ul>
+            <li>基本料金：50,000円</li>
+            <li>保守・運営費：10,000円 / 月</li>
+        </ul>
+        <p>
+          トップページ + 下層ページ3ページ程度の小規模なWebサイトを想定した料金です。問い合わせ機能、ブログ機能なども込みの金額です。 
+        </p>
+        <p>
+            基本的には、既存の資料をもとに制作を進めますので、テキストや写真などをご準備いただく必要があります。新たに取材やライティング、写真撮影が必要な場合は、別途お見積もりいたします。
+        </p>
+    </div>
+</BaseLayout>
