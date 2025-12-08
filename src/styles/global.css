@@ -287,6 +287,34 @@ p {
   animation: marquee 20s linear infinite;
 }
 
+  .page-container {
+    padding: 24px 40px;
+    max-width: 1080px;
+    margin: 0 auto;
+} 
+.page-container h2 {
+    font-size: 1.8rem;
+    letter-spacing: .1em;
+    border: #D9FE0B 8px solid;
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: dashed underline ;
+    text-underline-offset: 10px;
+}
+.page-container p {
+  margin-bottom: 32px;
+  line-height: 1.8em;
+}
+
+.page-container li {
+    margin-bottom: 8px;
+    line-height: 1.8em;
+}
+
+.service-list-item a {
+    text-decoration: none;
+    color: inherit;1
+}
 
 @keyframes marquee {
   0%   { translate: 0; }
