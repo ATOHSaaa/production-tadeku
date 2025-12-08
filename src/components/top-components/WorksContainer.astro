@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import TadekuImage from '../../assets/tadeku.png';
+import TenkaishaImage from '../../assets/tenkaisha.png';
+import CatImage from '../../assets/cat-in-the-park.png';
 ---
 
 <div class="works-container">
@@ -8,21 +10,21 @@ import TadekuImage from '../../assets/tadeku.png';
 		<div class="works-list">
             <div class="works-list-item">
                 <a href="https://tadeku.net/" target="_blank">
-                    <Image src={TadekuImage} alt="画像の説明。" />
+                    <Image src={TadekuImage} alt="蓼食う本の虫Webサイトのスクリーンショット" />
                 </a>
                 <p class="works-list-item-title">蓼食う本の虫</p>
                 <p class="works-list-item-category">Webサイト / 記事制作 / SNS運用</p>
             </div>
             <div class="works-list-item">
                 <a href="https://tenkai.org" target="_blank">
-                    <img src="../src/assets/tenkaisha.png" alt="tenkaisha-screenshot" />
+                    <Image src={TenkaishaImage} alt="転回社Webサイトのスクリーンショット" />
                 </a>
                 <p class="works-list-item-title">一般社団法人転回社</p>
                 <p class="works-list-item-category">Webサイト / 写真 / 広報 / チラシ</p>
             </div>
             <div class="works-list-item">
                 <a href="https://atohs.me/cat-in-the-park" target="_blank">
-                    <img src="../src/assets/cat-in-the-park.png" alt="tadeku-screenshot" />
+                    <Image src={CatImage} alt="Cat in the park. のWebサイトのスクリーンショット" />
                 </a>
                 <p class="works-list-item-title">Cat in the Park.</p>
                 <p class="works-list-item-category">動画 / 写真 / Webサイト</p>
