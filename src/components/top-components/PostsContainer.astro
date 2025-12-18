@@ -1,0 +1,160 @@
+---
+const allPosts = await Astro.glob('/src/pages/posts/*.md');
+
+// 投稿日でソート（新しい順）
+const sortedPosts = allPosts.sort((a, b) => {
+  const dateA = new Date(a.frontmatter.pubDate || 0);
+  const dateB = new Date(b.frontmatter.pubDate || 0);
+  return dateB.getTime() - dateA.getTime();
+});
+---
+
+<div class="posts-container">
+  <h2>ブログ記事<br /><span>POSTS</span></h2>
+  <div class="posts-list">
+    {sortedPosts.map((post) => (
+      <article class="post-item">
+        <a href={post.url}>
+          <h3 class="post-item-title">{post.frontmatter.title}</h3>
+          <div class="post-item-meta">
+            {post.frontmatter.pubDate && (
+              <span class="post-item-date">
+                📅 {new Date(post.frontmatter.pubDate).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </span>
+            )}
+            {post.frontmatter.author && (
+              <span class="post-item-author">
+                ✍️ {post.frontmatter.author}
+              </span>
+            )}
+          </div>
+          {post.frontmatter.description && (
+            <p class="post-item-description">{post.frontmatter.description}</p>
+          )}
+          {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+            <div class="post-item-tags">
+              {post.frontmatter.tags.map((tag) => (
+                <span class="post-item-tag">{tag}</span>
+              ))}
+            </div>
+          )}
+        </a>
+      </article>
+    ))}
+  </div>
+</div>
+
+<style>
+  .posts-container {
+    max-width: 1080px;
+    margin: 80px auto;
+    padding: 0 16px;
+  }
+
+  .posts-container h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 48px;
+  }
+
+  .posts-container h2 span {
+    color: white;
+    -webkit-text-stroke: white 2px;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+  }
+
+  .posts-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .post-item {
+    background-color: white;
+    border: black solid 3px;
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .post-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .post-item-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+  }
+
+  .post-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 16px;
+  }
+
+  .post-item-date,
+  .post-item-author {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .post-item-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .post-item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .post-item-tag {
+    background-color: #daff0b;
+    color: black;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 2px solid black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .posts-container {
+      margin: 60px auto;
+    }
+
+    .posts-container h2 {
+      font-size: 2em;
+    }
+
+    .posts-list {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .post-item {
+      padding: 20px;
+    }
+  }
+</style>
+
