@@ -1,4 +1,44 @@
-  <div class="marquee">
+<div class="marquee" role="presentation">
   <div class="marquee-inner">Design Dev SEO Writing Edit Photo Design Dev SEO Writing Edit Photo</div>
   <div class="marquee-inner" aria-hidden="true">Design Dev SEO Writing Edit Photo Design Dev SEO Writing Edit Photo</div>
 </div>
+
+<style>
+  .marquee {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    gap: 1rem;
+    font-size: 3rem;
+    margin-top: -200px;
+    background-color: black;
+    color: white;
+    font-style: italic;
+    padding: 12px 0;
+  }
+
+  .marquee-inner {
+    animation: marquee-scroll 20s linear infinite;
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      translate: 0;
+    }
+    100% {
+      translate: calc(-100% - 1rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-inner {
+      animation: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .marquee {
+      margin-top: 80px;
+    }
+  }
+</style>

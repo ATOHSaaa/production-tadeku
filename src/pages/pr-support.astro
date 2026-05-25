@@ -1,29 +1,28 @@
 ---
-import '../styles/global.css';
-import Navigation from '../components/navigation-components/Navigation.astro';
-import Header from '../components/navigation-components/Header.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "広報支援 - 蓼食う本の虫制作室";
+import PageContainer from '../components/PageContainer.astro';
+
+const pageTitle = '広報支援 - 蓼食う本の虫制作室';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <div class="page-container">
-      <h1>広報支援</h1>
-      <p>
-        取材を通じて、御社の魅力を伝える記事を制作します。また、SEOを意識したコンテンツ制作も可能です。
-      </p>
-      <p>
-        Webサービスのヘルプ記事、プロダクト解説記事制作の経験もございます。打ち合わせを通じて、どのような記事制作が必要かというところからご提案いたします。
-      </p>
-      <p>
-        また、テキストベースのお問い合わせ返信対応も承ります。お客様からのよくある質問に対する回答をまとめたFAQページの制作も可能です。お気軽にご相談ください。
-      </p>
-      <h2>料金について</h2>
-          <p>
-            基本料金：月額50,000円〜（想定稼働時間20時間まで）
-        </p>
-        <p>
-            以降、想定稼働時間20時間ごとに50,000円。月ごとに想定稼働時間を見直すことが可能です。ただし、次月以降の稼働時間が捻出できない場合もございますので、大幅な変更をご希望の場合は事前にご相談ください。
-        </p>
-    </div>
+  <PageContainer>
+    <h1>広報支援</h1>
+    <p>
+      取材を通じて、御社の魅力を伝える記事を制作します。また、SEOを意識したコンテンツ制作も可能です。
+    </p>
+    <p>
+      Webサービスのヘルプ記事、プロダクト解説記事制作の経験もございます。打ち合わせを通じて、どのような記事制作が必要かというところからご提案いたします。
+    </p>
+    <p>
+      また、テキストベースのお問い合わせ返信対応も承ります。お客様からのよくある質問に対する回答をまとめたFAQページの制作も可能です。お気軽にご相談ください。
+    </p>
+    <h2>料金について</h2>
+    <p>
+      基本料金：月額50,000円〜（想定稼働時間20時間まで）
+    </p>
+    <p>
+      以降、想定稼働時間20時間ごとに50,000円。月ごとに想定稼働時間を見直すことが可能です。ただし、次月以降の稼働時間が捻出できない場合もございますので、大幅な変更をご希望の場合は事前にご相談ください。
+    </p>
+  </PageContainer>
 </BaseLayout>

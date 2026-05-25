@@ -1,7 +1,5 @@
 ---
-import '../styles/global.css';
-import Navigation from '../components/navigation-components/Navigation.astro';
-import Header from '../components/navigation-components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 import TopContainer from '../components/top-components/TopContainer.astro';
 import WorksContainer from '../components/top-components/WorksContainer.astro';
@@ -10,15 +8,14 @@ import ServiceContainer from '../components/top-components/ServiceContainer.astr
 import Marquee from '../components/top-components/Marquee.astro';
 // import PostsContainer from '../components/top-components/PostsContainer.astro';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "蓼食う本の虫制作室 - Webを中心にさまざまなクリエイティブを提供する制作プロダクション";
+const pageTitle =
+  '蓼食う本の虫制作室 - Webを中心にさまざまなクリエイティブを提供する制作プロダクション';
 ---
 
-
 <BaseLayout pageTitle={pageTitle}>
-	<TopContainer />
+  <TopContainer />
   <Marquee />
-	<WorksContainer />
+  <WorksContainer />
   <FeatureContainer />
   <ServiceContainer />
   {/* <PostsContainer /> */}

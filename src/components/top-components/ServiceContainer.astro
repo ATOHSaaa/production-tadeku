@@ -1,44 +1,133 @@
 <div class="service-container">
-	<div class="service-line">
-		<h2>提供サービス<br /><span>SERVICE</span></h2>
-		<div class="service-text">
-			これまでの経験・知識を生かして、以下のサービスを提供しています。<br />
-			課題やお悩みに対して柔軟な提案が可能ですので、まずはご相談ください。
-		</div>
-		<div class="service-list">
-			<div class="service-list-item">
-				<h3>Web担当代行</h3>
-				<p>月額契約であなたの会社・お店のWeb担当者に！　Webサイトの制作から更新作業まで担当いたします。定例会議を設け、その時々のご要望にお応えします。</p>
-				<a href="/web-master-agancy">
-					<p class="service-button">詳しく見る →</p>
-				</a>
-			</div>
-			<div class="service-list-item">
-				<h3>Webサイト制作</h3>
-				<p>長期的な運用を前提としたWebサイトを定額で制作します。保守・運用費もリーズナブルに設定。また、ご自身でサイトを更新できるように支援いたしますので、安心してご依頼ください。</p>
-				<a href="/website">
-					<p class="service-button">詳しく見る →</p>
-				</a>
-			</div>
-			<div class="service-list-item">
-				<h3>広報支援</h3>
-				<p>取材を通じて、御社の魅力を伝える記事を制作します。また、SEOを意識したコンテンツ制作も可能です。ヘルプ記事、プロダクト解説記事などもお任せください。</p>
-				<a href="/pr-support">
-					<p class="service-button">詳しく見る →</p>
-				</a>
-			</div>
-			<div class="service-list-item">
-				<h3><span>and more…</span></h3>
-				<p>ここに書かれていないことについても、ご相談いただいたことに対して、手持ちのスキル・知識・経験で対応可能な施策をご提案いたします。お困りのことがあって、当制作室に依頼してみたいことがあれば、まずはお気軽にご相談くださいませ。</p>
-			</div>
-		</div>
-	</div>
+  <div class="service-line">
+    <h2>提供サービス<br /><span>SERVICE</span></h2>
+    <div class="service-text">
+      これまでの経験・知識を生かして、以下のサービスを提供しています。<br />
+      課題やお悩みに対して柔軟な提案が可能ですので、まずはご相談ください。
+    </div>
+    <div class="service-list">
+      <div class="service-list-item">
+        <h3>Web担当代行</h3>
+        <p>月額契約であなたの会社・お店のWeb担当者に！　Webサイトの制作から更新作業まで担当いたします。定例会議を設け、その時々のご要望にお応えします。</p>
+        <a href="/web-master-agancy">
+          <span class="service-button">詳しく見る →</span>
+        </a>
+      </div>
+      <div class="service-list-item">
+        <h3>Webサイト制作</h3>
+        <p>長期的な運用を前提としたWebサイトを定額で制作します。保守・運用費もリーズナブルに設定。また、ご自身でサイトを更新できるように支援いたしますので、安心してご依頼ください。</p>
+        <a href="/website">
+          <span class="service-button">詳しく見る →</span>
+        </a>
+      </div>
+      <div class="service-list-item">
+        <h3>広報支援</h3>
+        <p>取材を通じて、御社の魅力を伝える記事を制作します。また、SEOを意識したコンテンツ制作も可能です。ヘルプ記事、プロダクト解説記事などもお任せください。</p>
+        <a href="/pr-support">
+          <span class="service-button">詳しく見る →</span>
+        </a>
+      </div>
+      <div class="service-list-item">
+        <h3><span class="and-more-label">and more…</span></h3>
+        <p>ここに書かれていないことについても、ご相談いただいたことに対して、手持ちのスキル・知識・経験で対応可能な施策をご提案いたします。お困りのことがあって、当制作室に依頼してみたいことがあれば、まずはお気軽にご相談くださいませ。</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
-	h3 span {
-		background-color: black;
-		padding: 0 18px;
-		color: white;
-	}
+  .service-container {
+    background-color: var(--color-brand-orange);
+    padding: 0 16px;
+  }
+
+  .service-line {
+    max-width: var(--width-content);
+    margin: 0 auto;
+  }
+
+  .service-container h2 {
+    font-size: 2.5em;
+    color: white;
+    padding-top: 32px;
+    line-height: 1;
+    -webkit-text-stroke: white 1.6px;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  .service-container h2 span {
+    font-size: 0.8em;
+    letter-spacing: 2px;
+  }
+
+  .service-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin-bottom: 48px;
+  }
+
+  .service-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .service-list-item {
+    width: 48%;
+    background-color: white;
+    border: black solid 3px;
+    border-radius: 16px;
+    padding: 24px 48px;
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    line-height: 2em;
+  }
+
+  .service-list-item h3 {
+    font-size: 2em;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+    -webkit-text-stroke: black 0.5px;
+    text-align: center;
+  }
+
+  .and-more-label {
+    background-color: black;
+    padding: 0 18px;
+    color: white;
+  }
+
+  .service-button {
+    border: black solid 2px;
+    border-radius: 40px;
+    width: 260px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    background-color: var(--color-brand-lime);
+    font-size: 0.9em;
+    margin-top: 24px;
+    display: block;
+  }
+
+  .service-list-item a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .service-list-item a:focus-visible .service-button {
+    outline: 2px solid black;
+    outline-offset: 3px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .service-list-item {
+      width: 100%;
+      padding: 24px;
+    }
+  }
 </style>

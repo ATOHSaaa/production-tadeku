@@ -1,0 +1,44 @@
+---
+---
+
+<div class="page-container">
+  <slot />
+</div>
+
+<style>
+  .page-container {
+    padding: 24px 40px;
+    max-width: var(--width-content);
+    margin: 0 auto;
+  }
+
+  .page-container h1 {
+    letter-spacing: 0.05em;
+  }
+
+  .page-container h2 {
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    border: var(--color-brand-lime) 8px solid;
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: dashed underline;
+    text-underline-offset: 10px;
+  }
+
+  .page-container :global(p) {
+    margin-bottom: 32px;
+    line-height: 1.8em;
+  }
+
+  .page-container :global(li) {
+    margin-bottom: 8px;
+    line-height: 1.8em;
+  }
+
+  @media screen and (max-width: 768px) {
+    .page-container {
+      padding: 24px 16px;
+    }
+  }
+</style>

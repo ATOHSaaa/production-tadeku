@@ -90,6 +90,12 @@ const sortedPosts = allPosts.sort((a, b) => {
     display: block;
   }
 
+  .post-item a:focus-visible {
+    outline: 3px solid black;
+    outline-offset: 4px;
+    border-radius: 16px;
+  }
+
   .post-item-title {
     font-size: 1.5em;
     font-weight: bold;
@@ -103,7 +109,7 @@ const sortedPosts = allPosts.sort((a, b) => {
     flex-wrap: wrap;
     gap: 12px;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--color-text-muted);
     margin-bottom: 16px;
   }
 
@@ -117,7 +123,7 @@ const sortedPosts = allPosts.sort((a, b) => {
   .post-item-description {
     font-size: 1rem;
     line-height: 1.6;
-    color: #333;
+    color: var(--color-text-body);
     margin-bottom: 16px;
   }
 
@@ -129,7 +135,7 @@ const sortedPosts = allPosts.sort((a, b) => {
   }
 
   .post-item-tag {
-    background-color: #daff0b;
+    background-color: var(--color-brand-lime);
     color: black;
     padding: 4px 12px;
     border-radius: 20px;
