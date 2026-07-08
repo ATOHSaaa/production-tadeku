@@ -1,6 +1,6 @@
 <div class="feature-container">
   <div class="feature-line">
-    <h2>当制作室の特徴<br /><span>FEATURE</span></h2>
+    <h2>当制作室の特徴<span class="section-label">FEATURE</span></h2>
     <div class="feature-list">
       <div class="feature-list-item">
         <div class="feature-list-item-text">
@@ -50,9 +50,8 @@
 
 <style>
   .feature-container {
-    margin: -60px auto;
-    background-color: var(--color-brand-green);
-    padding: 0 16px;
+    background-color: var(--color-surface-alt);
+    padding: 64px 16px;
   }
 
   .feature-line {
@@ -61,45 +60,54 @@
   }
 
   .feature-container h2 {
-    font-size: 2.5em;
-    color: white;
-    padding-top: 32px;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-top: 0;
     line-height: 1;
-    -webkit-text-stroke: white 1.6px;
     margin-bottom: 40px;
     letter-spacing: 0.05em;
   }
 
-  .feature-container h2 span {
-    font-size: 0.8em;
-    letter-spacing: 2px;
+  .section-label {
+    display: block;
+    font-size: 0.45em;
+    font-weight: normal;
+    color: var(--color-text-muted);
+    letter-spacing: 0.2em;
+    margin-top: 8px;
   }
 
   .feature-list {
-    padding-bottom: 40px;
+    padding-bottom: 0;
   }
 
   .feature-list-item {
-    border: black solid 3px;
-    border-radius: 16px;
-    background-color: white;
-    padding: 24px;
-    justify-content: space-between;
-    margin-bottom: 40px;
-    font-size: 1.1em;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-white);
+    padding: 32px;
+    margin-bottom: 24px;
+    font-size: 1.05em;
     line-height: 1.8;
   }
 
+  .feature-list-item:last-child {
+    margin-bottom: 0;
+  }
+
   .feature-list-item-text h3 {
-    font-size: 1.8em;
-    margin-bottom: -8px;
-    letter-spacing: 0.1em;
-    -webkit-text-stroke: black 0.5px;
-    position: relative;
-    top: -11px;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border-soft);
   }
 
   .feature-list-item-text p {
     margin-top: 16px;
+  }
+
+  .feature-list-item-text p:first-of-type {
+    margin-top: 0;
   }
 </style>

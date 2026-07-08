@@ -9,104 +9,63 @@
     rel="noopener noreferrer"
     class="contact-button"
   >
-    <span class="contact-icon" aria-hidden="true">✉️</span>
     <span class="contact-text">お問い合わせ</span>
   </a>
 </div>
 
 <style>
   .header-container {
-    border-top: 20px var(--color-brand-lime) solid;
-    margin-top: 0;
-    padding: 16px 40px;
+    border-bottom: 2px solid var(--color-black);
+    padding: 20px 40px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    background-color: var(--color-white);
   }
 
   h1 {
-    color: var(--color-brand-lime);
-    -webkit-text-stroke: 1.4px black;
-    font-weight: normal;
-    background-color: var(--color-brand-lime);
-    display: inline-block;
-    padding: 8px 16px;
+    color: var(--color-black);
+    font-weight: bold;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
     margin: 0;
-    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
-  }
-
-  @keyframes floating-y {
-    0% {
-      transform: translateY(-5%);
-    }
-    100% {
-      transform: translateY(5%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    h1 {
-      animation: none;
-    }
   }
 
   h1 a {
     text-decoration: none;
-    color: var(--color-brand-lime);
+    color: inherit;
   }
 
   h1 a:focus-visible {
-    outline: 2px solid black;
+    outline: 2px solid var(--color-black);
     outline-offset: 4px;
   }
 
   .contact-button {
-    color: black;
+    color: var(--color-white);
+    background-color: var(--color-black);
     text-decoration: none;
-    font-weight: 800;
-    font-size: 1.1rem;
+    font-weight: bold;
+    font-size: 0.95rem;
     white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-block;
+    padding: 10px 24px;
     cursor: pointer;
-    border-radius: 4px;
+  }
+
+  .contact-button:hover {
+    background-color: var(--color-text-body);
   }
 
   .contact-button:focus-visible {
-    outline: 2px solid black;
+    outline: 2px solid var(--color-black);
     outline-offset: 4px;
   }
 
-  .contact-icon {
-    font-size: 1.2rem;
-    display: inline-block;
-    transition: transform 0.2s ease;
-    line-height: 1;
-    vertical-align: middle;
-  }
-
-  .contact-button:hover .contact-icon {
-    transform: scale(1.1);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .contact-icon {
-      transition: none;
-    }
-
-    .contact-button:hover .contact-icon {
-      transform: none;
-    }
-  }
-
   .contact-text {
-    text-decoration: underline;
-    text-underline-offset: 4px;
     line-height: 1.2;
-    vertical-align: middle;
   }
 
   @media screen and (max-width: 768px) {
@@ -114,18 +73,11 @@
       padding: 16px;
       flex-direction: column;
       gap: 16px;
+      align-items: flex-start;
     }
 
     h1 {
-      font-size: 2.5rem;
-    }
-
-    .contact-button {
-      font-size: 1.1rem;
-    }
-
-    .contact-icon {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
 </style>

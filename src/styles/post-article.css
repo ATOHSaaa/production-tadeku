@@ -7,15 +7,14 @@
   max-width: var(--width-post);
   margin: 60px auto;
   padding: 40px;
-  background-color: white;
-  border: black solid 3px;
-  border-radius: 16px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black);
 }
 
 .post-header {
   margin-bottom: 40px;
   padding-bottom: 24px;
-  border-bottom: 2px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
 }
 
 .post-title {
@@ -49,13 +48,12 @@
 }
 
 .post-tag {
-  background-color: var(--color-brand-lime);
-  color: black;
+  background-color: var(--color-white);
+  color: var(--color-black);
   padding: 4px 12px;
-  border-radius: 20px;
   font-size: 0.85rem;
   font-weight: bold;
-  border: 2px solid black;
+  border: 2px solid var(--color-black);
 }
 
 .post-content {
@@ -69,7 +67,7 @@
   margin-bottom: 24px;
   font-weight: bold;
   letter-spacing: 0.05em;
-  border-bottom: 3px solid var(--color-brand-lime);
+  border-bottom: 2px solid var(--color-black);
   padding-bottom: 8px;
 }
 
@@ -108,7 +106,7 @@
 
 .post-content strong {
   font-weight: bold;
-  color: black;
+  color: var(--color-black);
 }
 
 .post-content em {
@@ -116,30 +114,29 @@
 }
 
 .post-content a {
-  color: var(--color-brand-orange);
+  color: var(--color-black);
   text-decoration: underline;
-  transition: color 0.2s ease;
+  text-underline-offset: 3px;
 }
 
 .post-content a:hover {
-  color: var(--color-brand-orange-hover);
+  text-decoration-thickness: 2px;
 }
 
 .post-content a:focus-visible {
-  outline: 2px solid black;
+  outline: 2px solid var(--color-black);
   outline-offset: 2px;
 }
 
 .post-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
   margin: 32px 0;
-  border: 2px solid black;
+  border: 2px solid var(--color-black);
 }
 
 .post-content blockquote {
-  border-left: 4px solid var(--color-brand-lime);
+  border-left: 4px solid var(--color-black);
   padding-left: 24px;
   margin: 32px 0;
   font-style: italic;
@@ -149,7 +146,6 @@
 .post-content code {
   background-color: var(--color-code-bg);
   padding: 2px 6px;
-  border-radius: 4px;
   font-family: 'Courier New', monospace;
   font-size: 0.9em;
   border: 1px solid var(--color-code-border);
@@ -158,10 +154,9 @@
 .post-content pre {
   background-color: var(--color-code-bg);
   padding: 16px;
-  border-radius: 8px;
   overflow-x: auto;
   margin: 24px 0;
-  border: 2px solid black;
+  border: 2px solid var(--color-black);
 }
 
 .post-content pre code {
@@ -172,7 +167,7 @@
 
 .post-content hr {
   border: none;
-  border-top: 2px solid var(--color-brand-lime);
+  border-top: 2px solid var(--color-black);
   margin: 40px 0;
 }
 

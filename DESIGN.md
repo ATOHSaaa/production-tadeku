@@ -1,60 +1,63 @@
 # デザインガイド（蓼食う本の虫制作室サイト）
 
-公式の Figma は無い前提で、**現行実装から読み取れるルール**をここにまとめる。変更時は `src/styles/global.css` の `@theme` とこの文書を揃えるとよい。
+**白黒基調のフラットデザイン**。変更時は `src/styles/global.css` の `@theme` とこの文書を揃える。
 
 ## プリミティブ（デザイントークン）
 
-カラー・フォント・レイアウト幅は CSS で `:root` に近い形で宣言している（Tailwind v4 の `@theme`）。コンポーネントの `<style>` や単体 CSS からは `var(--color-brand-lime)` のように参照できる。
+カラー・フォント・レイアウト幅は CSS で `@theme` に宣言。コンポーネントからは `var(--color-black)` のように参照する。
 
 | トークン | 値 | 用途の目安 |
 |----------|-----|------------|
-| `--color-brand-lime` | `#daff0b` | アクセント、選択ハイライト、タグ、装飾線 |
-| `--color-brand-orange` | `#ff6d35` | CTA・リンク強調（記事本文リンクなど） |
-| `--color-brand-orange-hover` | `#ff8c5a` | オレンジのホバー |
-| `--color-brand-green` | `#89b976` | 「特徴」セクション背景 |
-| `--color-page-bg` | `#e6e6e6` | ページ背景 |
-| `--color-text-muted` | `#666666` | メタ情報・引用 |
+| `--color-black` | `#000000` | テキスト・枠線・ボタン背景 |
+| `--color-white` | `#ffffff` | ページ背景・カード背景 |
+| `--color-surface-alt` | `#f5f5f5` | 交互セクション背景（特徴など） |
+| `--color-surface-dark` | `#000000` | 反転セクション背景（サービスなど） |
+| `--color-text-muted` | `#666666` | メタ情報・英字ラベル |
 | `--color-text-body` | `#333333` | 補助テキスト |
 | `--color-code-bg` | `#f5f5f5` | コードブロック背景 |
-| `--color-code-border` | `#dddddd` | インラインコード枠 |
-| `--color-border-soft` | `#e6e6e6` | 区切り線（記事ヘッダー下など） |
+| `--color-code-border` | `#cccccc` | インラインコード枠 |
+| `--color-border-soft` | `#e0e0e0` | 区切り線 |
 
 タイポグラフィ:
 
 - **フォントスタック**: `Helvetica, Hiragino Sans, 游ゴシック, Yu Gothic, sans-serif`（`--font-sans`）
-- **和文**: `font-feature-settings: "palt"`（プロポーショナルメトリクス）
+- **和文**: `font-feature-settings: "palt"`
 
 レイアウト:
 
-- **コンテンツ最大幅**: `--width-content` = `1080px`（トップ各セクション・一覧）
+- **コンテンツ最大幅**: `--width-content` = `1080px`
 - **記事カード内本文エリア**: `--width-post` = `800px`
+
+## デザイン原則
+
+- **白黒のみ** — アクセントカラーは使わず、黒・白・グレーで構成
+- **フラット** — 影・グラデーション・装飾的 stroke なし。角丸も使わない
+- **太枠** — カード・画像は `2px solid black` の直線ボーダー
+- **反転セクション** — サービス等は黒背景 + 白カードでコントラストを出す
+- **ホバー** — 色反転（黒↔白）または下線のみ。浮き上がり・シャドウは使わない
 
 ## コンポーネント・パターン
 
-- **角丸カード**: 白背景 + `border: 3px solid black` + `border-radius: 16px`（実績グリッド・サービス説明・記事ヘッダーカードなど）
-- **アウトラインテキスト見出し**: `-webkit-text-stroke` で縁取り風（ヘッダーロゴ・セクション英字サブタイトル）
-- **帯ボタン**: 角丸 40px・太字・黒枠（「当制作室について」「詳しく見る」など）
+- **セクション見出し**: 日本語タイトル + 小さな英字ラベル（`WORKS` 等、グレー）
+- **カード**: 白背景 + `border: 2px solid black`、角丸なし
+- **ボタン**: 黒背景・白文字。ホバーで白背景・黒文字に反転
+- **下層ページ h2**: 左に `4px solid black` の縦線
 
 ## ブレークポイント
 
-- **768px 以下**: 1 カラム寄せ・パディング縮小・ヒーローグリッドを縦積みなど（各コンポーネントの `@media` に記述）
+- **768px 以下**: 1 カラム寄せ・パディング縮小（各コンポーネントの `@media` に記述）
 
-## ファイル分割の考え方
+## ファイル分割
 
 | 領域 | 主な置き場所 |
 |------|----------------|
 | トークン + ベースリセット | `src/styles/global.css` |
-| 記事（Markdown スロット含む） | `src/styles/post-article.css`（`PostLayout` のみ import） |
+| 記事（Markdown スロット含む） | `src/styles/post-article.css` |
 | セクション単位 | 各 `*.astro` の `<style>`（scoped） |
 
-記事の更新が多い場合、**本文まわりは `post-article.css` と `PostLayout.astro` に集約**しておくと、 Markdown だけ触る運用と衝突しにくい。
+## アクセシビリティ（最低限）
 
-## アクセシビリティ方針（最低限）
-
-- インタラクティブ要素に **`:focus-visible`** のフォーカスリング（ヘッダーの問い合わせリンクなど）
-- **`<a>` 内に `<p>` を入れない**（ボタン見た目は `<span>` + display で再現）
-- マーキー等のアニメーションは **`prefers-reduced-motion: reduce` で停止**
-
-## Tailwind
-
-ユーティリティが必要な箇所では `@theme` で定義した色から `bg-brand-lime` のようなクラスも利用できる。現状は見た目維持のため、セクションは主にスコープ CSS で移植している。
+- インタラクティブ要素に **`:focus-visible`** のフォーカスリング
+- **`<a>` 内に `<p>` を入れない**
+- マーキーは **JavaScript（requestAnimationFrame）** で駆動し、OS の「視差効果を減らす」設定の影響を受けない
+- CSS トランジションは `global.css` で `prefers-reduced-motion` の UA 短縮を上書き

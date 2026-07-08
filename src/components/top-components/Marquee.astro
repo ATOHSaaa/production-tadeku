@@ -1,44 +1,82 @@
-<div class="marquee" role="presentation">
-  <div class="marquee-inner">Design Dev SEO Writing Edit Photo Design Dev SEO Writing Edit Photo</div>
-  <div class="marquee-inner" aria-hidden="true">Design Dev SEO Writing Edit Photo Design Dev SEO Writing Edit Photo</div>
+<div class="marquee" role="presentation" data-marquee>
+  <div class="marquee-track">
+    <div class="marquee-inner">Design Dev SEO Writing Edit Photo Design Dev SEO Writing Edit Photo</div>
+    <div class="marquee-inner" aria-hidden="true">Design Dev SEO Writing Edit Photo Design Dev SEO Writing Edit Photo</div>
+  </div>
 </div>
+
+<script>
+  function setupMarquee(marquee) {
+    if (marquee.dataset.marqueeReady === 'true') return;
+    marquee.dataset.marqueeReady = 'true';
+
+    const track = marquee.querySelector('.marquee-track');
+    const firstInner = track?.querySelector('.marquee-inner');
+    if (!track || !firstInner) return;
+
+    let offset = 0;
+    let segmentWidth = 0;
+    let rafId = 0;
+
+    const measure = () => {
+      segmentWidth = firstInner.offsetWidth + 16;
+    };
+
+    const tick = () => {
+      offset -= 0.6;
+      if (segmentWidth > 0 && Math.abs(offset) >= segmentWidth) {
+        offset += segmentWidth;
+      }
+      track.style.transform = `translate3d(${offset}px, 0, 0)`;
+      rafId = requestAnimationFrame(tick);
+    };
+
+    measure();
+    window.addEventListener('resize', measure);
+    rafId = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', measure);
+    };
+  }
+
+  function initMarquees() {
+    document.querySelectorAll('[data-marquee]').forEach(setupMarquee);
+  }
+
+  initMarquees();
+  document.addEventListener('astro:page-load', initMarquees);
+</script>
 
 <style>
   .marquee {
-    display: flex;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
+    font-size: 2.5rem;
+    margin-top: 64px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    padding: 16px 0;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
     gap: 1rem;
-    font-size: 3rem;
-    margin-top: -200px;
-    background-color: black;
-    color: white;
-    font-style: italic;
-    padding: 12px 0;
+    will-change: transform;
   }
 
   .marquee-inner {
-    animation: marquee-scroll 20s linear infinite;
-  }
-
-  @keyframes marquee-scroll {
-    0% {
-      translate: 0;
-    }
-    100% {
-      translate: calc(-100% - 1rem);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-inner {
-      animation: none;
-    }
+    flex-shrink: 0;
   }
 
   @media screen and (max-width: 768px) {
     .marquee {
-      margin-top: 80px;
+      margin-top: 48px;
+      font-size: 1.5rem;
     }
   }
 </style>

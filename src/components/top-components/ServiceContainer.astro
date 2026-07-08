@@ -1,6 +1,6 @@
 <div class="service-container">
   <div class="service-line">
-    <h2>提供サービス<br /><span>SERVICE</span></h2>
+    <h2>提供サービス<span class="section-label">SERVICE</span></h2>
     <div class="service-text">
       これまでの経験・知識を生かして、以下のサービスを提供しています。<br />
       課題やお悩みに対して柔軟な提案が可能ですので、まずはご相談ください。
@@ -37,8 +37,9 @@
 
 <style>
   .service-container {
-    background-color: var(--color-brand-orange);
-    padding: 0 16px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 64px 16px;
   }
 
   .service-line {
@@ -47,80 +48,94 @@
   }
 
   .service-container h2 {
-    font-size: 2.5em;
-    color: white;
-    padding-top: 32px;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-top: 0;
     line-height: 1;
-    -webkit-text-stroke: white 1.6px;
     margin-bottom: 20px;
     letter-spacing: 0.05em;
   }
 
-  .service-container h2 span {
-    font-size: 0.8em;
-    letter-spacing: 2px;
+  .section-label {
+    display: block;
+    font-size: 0.45em;
+    font-weight: normal;
+    color: #999999;
+    letter-spacing: 0.2em;
+    margin-top: 8px;
   }
 
   .service-text {
-    font-size: 1.2em;
-    font-weight: bold;
-    letter-spacing: 0.05em;
+    font-size: 1.05em;
+    font-weight: normal;
+    letter-spacing: 0.03em;
     margin-bottom: 48px;
+    line-height: 1.8;
+    color: #cccccc;
   }
 
   .service-list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 24px;
   }
 
   .service-list-item {
-    width: 48%;
-    background-color: white;
-    border: black solid 3px;
-    border-radius: 16px;
-    padding: 24px 48px;
-    margin-bottom: 40px;
-    font-size: 1.2em;
-    line-height: 2em;
+    width: calc(50% - 12px);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 2px solid var(--color-white);
+    padding: 32px;
+    font-size: 1.05em;
+    line-height: 1.8;
   }
 
   .service-list-item h3 {
-    font-size: 2em;
-    margin-top: 32px;
-    margin-bottom: 24px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
     letter-spacing: 0.05em;
-    -webkit-text-stroke: black 0.5px;
-    text-align: center;
+    text-align: left;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-black);
   }
 
   .and-more-label {
-    background-color: black;
-    padding: 0 18px;
-    color: white;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 4px 12px;
+    display: inline-block;
   }
 
   .service-button {
-    border: black solid 2px;
-    border-radius: 40px;
-    width: 260px;
-    margin: 0 auto;
+    border: 2px solid var(--color-black);
+    width: 100%;
+    max-width: 260px;
+    margin: 24px auto 0;
     text-align: center;
-    padding: 12px;
+    padding: 12px 24px;
     font-weight: bold;
-    background-color: var(--color-brand-lime);
+    background-color: var(--color-black);
+    color: var(--color-white);
     font-size: 0.9em;
-    margin-top: 24px;
     display: block;
   }
 
   .service-list-item a {
     text-decoration: none;
     color: inherit;
+    display: block;
+  }
+
+  .service-list-item a:hover .service-button {
+    background-color: var(--color-white);
+    color: var(--color-black);
   }
 
   .service-list-item a:focus-visible .service-button {
-    outline: 2px solid black;
+    outline: 2px solid var(--color-black);
     outline-offset: 3px;
   }
 

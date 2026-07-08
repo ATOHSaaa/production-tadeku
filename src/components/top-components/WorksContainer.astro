@@ -6,7 +6,7 @@ import CatImage from '../../assets/cat-in-the-park.png';
 ---
 
 <div class="works-container">
-  <h2>制作実績<br /><span>WORKS</span></h2>
+  <h2>制作実績<span class="section-label">WORKS</span></h2>
   <div class="works-list">
     <div class="works-list-item">
       <a href="https://tadeku.net/" target="_blank" rel="noopener noreferrer">
@@ -41,14 +41,19 @@ import CatImage from '../../assets/cat-in-the-park.png';
 
   .works-container h2 {
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin-bottom: 48px;
   }
 
-  .works-container h2 span {
-    color: white;
-    -webkit-text-stroke: white 2px;
-    font-size: 0.9em;
-    letter-spacing: 2px;
+  .section-label {
+    display: block;
+    font-size: 0.45em;
+    font-weight: normal;
+    color: var(--color-text-muted);
+    letter-spacing: 0.2em;
+    margin-top: 8px;
   }
 
   .works-list {
@@ -61,13 +66,12 @@ import CatImage from '../../assets/cat-in-the-park.png';
 
   .works-list-item {
     width: 30%;
-    margin-bottom: 60px;
+    margin-bottom: 48px;
   }
 
   .works-list-item a:focus-visible {
-    outline: 3px solid var(--color-brand-lime);
+    outline: 2px solid var(--color-black);
     outline-offset: 4px;
-    border-radius: 8px;
     display: block;
   }
 
@@ -75,17 +79,18 @@ import CatImage from '../../assets/cat-in-the-park.png';
     height: 200px;
     width: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    border: 2px solid var(--color-black);
   }
 
   .works-list-item-title {
-    font-size: 1.2em;
-    margin-top: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 12px;
   }
 
   .works-list-item-category {
-    font-size: 0.9em;
-    color: gray;
+    font-size: 0.85em;
+    color: var(--color-text-muted);
     margin-top: 4px;
   }
 

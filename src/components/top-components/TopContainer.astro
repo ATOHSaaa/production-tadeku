@@ -6,7 +6,6 @@
         つたえる、<br />
         ひろげる。<br />
       </p>
-      <div class="circle"></div>
     </div>
     <div class="top-grid-text">
       <p>
@@ -17,7 +16,7 @@
       </p>
       <a href="/about" class="about-link">
         <span class="about-button">
-          当制作室について <span class="about-button-arrow" aria-hidden="true">→</span>
+          当制作室について →
         </span>
       </a>
     </div>
@@ -32,18 +31,21 @@
 
   .top-grid-container {
     display: grid;
-    grid-template-columns: 240px 200px auto;
-    grid-template-rows: 1fr;
-    margin-top: 100px;
+    grid-template-columns: auto minmax(0, 1fr);
+    margin-top: 80px;
     padding: 0 24px;
+    gap: clamp(24px, 5vw, 64px);
+    align-items: start;
   }
 
   .top-grid-copy-box {
-    grid-column: 1 / 2;
-    grid-row: 1 / 1;
-    font-size: 4em;
+    font-size: clamp(2rem, 3.5vw + 0.5rem, 3.5rem);
     font-weight: bold;
     text-align: left;
+    border-left: 4px solid var(--color-black);
+    padding-left: 24px;
+    width: fit-content;
+    flex-shrink: 0;
   }
 
   .top-grid-copy-box p {
@@ -51,28 +53,17 @@
     display: inline-block;
     text-align: left;
     line-height: 1.8;
-    transform: skewX(-4deg);
+    letter-spacing: 0.05em;
+    margin: 0;
   }
 
   .top-grid-text {
-    grid-column: 3 / 4;
-    grid-row: 1 / 1;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 1.5em;
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+    font-weight: normal;
+    line-height: 1.8;
     letter-spacing: 0.03em;
     padding-top: 4px;
-  }
-
-  .circle {
-    height: 320px;
-    width: 320px;
-    background-color: var(--color-brand-lime);
-    border-radius: 50%;
-    position: relative;
-    left: 0;
-    top: -280px;
-    z-index: -1;
+    min-width: 0;
   }
 
   .about-link {
@@ -81,63 +72,54 @@
     display: block;
     width: fit-content;
     max-width: 100%;
-    margin-left: auto;
-    margin-top: 48px;
+    margin-top: 40px;
   }
 
   .about-link:focus-visible {
-    outline: 2px solid black;
+    outline: 2px solid var(--color-black);
     outline-offset: 4px;
-    border-radius: 40px;
   }
 
   .about-button {
-    border: black solid 1px;
-    border-radius: 40px;
+    border: 2px solid var(--color-black);
     width: 280px;
-    margin-left: 0;
-    margin-top: 0;
     text-align: center;
-    padding: 12px;
+    padding: 14px 24px;
     font-weight: bold;
-    background-color: var(--color-brand-orange);
-    font-size: 0.9em;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 0.95rem;
     display: block;
   }
 
-  .about-button-arrow {
-    color: white;
-    -webkit-text-stroke: 1px black;
+  .about-link:hover .about-button {
+    background-color: var(--color-white);
+    color: var(--color-black);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     .top-grid-container {
-      display: block;
+      grid-template-columns: 1fr;
+      gap: 32px;
     }
 
     .top-grid-copy-box {
-      font-size: 2.5em;
-      text-align: center;
-      margin-top: -60px;
-      margin-bottom: -140px;
+      padding-left: 16px;
     }
 
     .top-grid-text {
-      font-size: 1.1rem;
-      padding-top: 20px;
-    }
-
-    .circle {
-      left: 49%;
-      transform: translateX(-50%);
-      top: -200px;
-      height: 220px;
-      width: 220px;
+      padding-top: 0;
     }
 
     .about-link {
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .top-grid-copy-box {
+      font-size: 1.75rem;
     }
   }
 </style>

@@ -2,19 +2,20 @@
 
 /**
  * サイト共通のデザイントークン（Tailwind v4 @theme）。
- * 詳細・運用ルールは DESIGN.md を参照。
+ * 白黒基調のフラットデザイン。詳細は DESIGN.md を参照。
  */
 @theme {
-  --color-brand-lime: #daff0b;
-  --color-brand-orange: #ff6d35;
-  --color-brand-orange-hover: #ff8c5a;
-  --color-brand-green: #89b976;
-  --color-page-bg: #e6e6e6;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-page-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f5f5;
+  --color-surface-dark: #000000;
   --color-text-muted: #666666;
   --color-text-body: #333333;
   --color-code-bg: #f5f5f5;
-  --color-code-border: #dddddd;
-  --color-border-soft: #e6e6e6;
+  --color-code-border: #cccccc;
+  --color-border-soft: #e0e0e0;
 
   --font-sans: Helvetica, Hiragino Sans, '游ゴシック', Yu Gothic, sans-serif;
 
@@ -25,6 +26,7 @@
 @layer base {
   html {
     background-color: var(--color-page-bg);
+    color: var(--color-black);
     font-family: var(--font-sans);
     margin: 0;
   }
@@ -39,7 +41,8 @@
   }
 
   ::selection {
-    background-color: var(--color-brand-lime);
+    background-color: var(--color-black);
+    color: var(--color-white);
   }
 
   *,
@@ -59,5 +62,19 @@
 
   p {
     margin: 0;
+  }
+}
+
+/**
+ * macOS「視差効果を減らす」設定を無視し、CSS アニメーション・トランジションを維持する。
+ * ブラウザ UA が prefers-reduced-motion で短縮する指定を revert で上書きする。
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: revert !important;
+    animation-iteration-count: revert !important;
+    transition-duration: revert !important;
   }
 }
