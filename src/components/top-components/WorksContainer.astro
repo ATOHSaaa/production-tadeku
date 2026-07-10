@@ -36,7 +36,7 @@ import CatImage from '../../assets/cat-in-the-park.png';
   .works-container {
     max-width: var(--width-content);
     margin: 80px auto;
-    padding: 0 16px;
+    padding: 0 var(--space-gutter-lg);
   }
 
   .works-container h2 {
@@ -95,13 +95,28 @@ import CatImage from '../../assets/cat-in-the-park.png';
   }
 
   @media screen and (max-width: 768px) {
+    .works-container {
+      margin: 60px auto;
+      padding: 0 var(--space-gutter);
+    }
+
+    .works-container h2 {
+      font-size: 1.6rem;
+      margin-bottom: 32px;
+    }
+
     .works-list {
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     .works-list-item {
-      width: 90%;
+      width: 100%;
       margin-bottom: 36px;
+    }
+
+    .works-list-item:last-child {
+      margin-bottom: 0;
     }
   }
 </style>

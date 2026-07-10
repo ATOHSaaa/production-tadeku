@@ -51,7 +51,7 @@
 <style>
   .feature-container {
     background-color: var(--color-surface-alt);
-    padding: 64px 16px;
+    padding: 64px var(--space-gutter-lg);
   }
 
   .feature-line {
@@ -60,6 +60,7 @@
   }
 
   .feature-container h2 {
+    text-align: center;
     font-size: 2rem;
     font-weight: bold;
     padding-top: 0;
@@ -109,5 +110,26 @@
 
   .feature-list-item-text p:first-of-type {
     margin-top: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .feature-container {
+      padding: 48px var(--space-gutter);
+    }
+
+    .feature-container h2 {
+      font-size: 1.6rem;
+      margin-bottom: 32px;
+    }
+
+    .feature-list-item {
+      padding: 20px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .feature-list-item-text h3 {
+      font-size: 1.2em;
+    }
   }
 </style>

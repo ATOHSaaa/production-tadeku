@@ -39,7 +39,7 @@
   .service-container {
     background-color: var(--color-black);
     color: var(--color-white);
-    padding: 64px 16px;
+    padding: 64px var(--space-gutter-lg);
   }
 
   .service-line {
@@ -48,6 +48,7 @@
   }
 
   .service-container h2 {
+    text-align: center;
     font-size: 2rem;
     font-weight: bold;
     padding-top: 0;
@@ -111,8 +112,7 @@
 
   .service-button {
     border: 2px solid var(--color-black);
-    width: 100%;
-    max-width: 260px;
+    width: min(260px, 100%);
     margin: 24px auto 0;
     text-align: center;
     padding: 12px 24px;
@@ -121,6 +121,7 @@
     color: var(--color-white);
     font-size: 0.9em;
     display: block;
+    box-sizing: border-box;
   }
 
   .service-list-item a {
@@ -140,9 +141,32 @@
   }
 
   @media screen and (max-width: 768px) {
+    .service-container {
+      padding: 48px var(--space-gutter);
+    }
+
+    .service-container h2 {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .service-text {
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    .service-list {
+      gap: 16px;
+    }
+
     .service-list-item {
       width: 100%;
-      padding: 24px;
+      padding: 20px;
+      font-size: 1rem;
+    }
+
+    .service-list-item h3 {
+      font-size: 1.3em;
     }
   }
 </style>

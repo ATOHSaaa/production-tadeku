@@ -17,6 +17,11 @@
   --color-code-border: #cccccc;
   --color-border-soft: #e0e0e0;
 
+  --radius-button: 4px;
+
+  --space-gutter: 16px;
+  --space-gutter-lg: 24px;
+
   --font-sans: Helvetica, Hiragino Sans, '游ゴシック', Yu Gothic, sans-serif;
 
   --width-content: 1080px;
@@ -63,6 +68,17 @@
   p {
     margin: 0;
   }
+}
+
+.contact-button,
+.about-button,
+.service-button,
+.blog-posts-view-all {
+  border-radius: var(--radius-button);
+}
+
+.about-link:focus-visible {
+  border-radius: var(--radius-button);
 }
 
 /**

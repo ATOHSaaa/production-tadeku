@@ -16,11 +16,12 @@
 <style>
   .header-container {
     border-bottom: 2px solid var(--color-black);
-    padding: 20px 40px;
+    padding: 20px var(--space-gutter-lg);
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
     box-sizing: border-box;
     background-color: var(--color-white);
   }
@@ -31,6 +32,7 @@
     font-size: 1.4rem;
     letter-spacing: 0.05em;
     margin: 0;
+    min-width: 0;
   }
 
   h1 a {
@@ -53,6 +55,7 @@
     display: inline-block;
     padding: 10px 24px;
     cursor: pointer;
+    flex-shrink: 0;
   }
 
   .contact-button:hover {
@@ -70,14 +73,19 @@
 
   @media screen and (max-width: 768px) {
     .header-container {
-      padding: 16px;
-      flex-direction: column;
-      gap: 16px;
-      align-items: flex-start;
+      padding: 16px var(--space-gutter);
+      flex-direction: row;
+      align-items: center;
     }
 
     h1 {
-      font-size: 1.2rem;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .contact-button {
+      font-size: 0.85rem;
+      padding: 8px 16px;
     }
   }
 </style>
