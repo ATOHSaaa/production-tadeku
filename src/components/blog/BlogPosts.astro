@@ -6,7 +6,8 @@ interface Props {
 
 const { limit, showViewAll = false } = Astro.props;
 
-const allPosts = await Astro.glob('/src/pages/blog/*.md');
+const postModules = import.meta.glob('../../pages/blog/*.md');
+const allPosts = await Promise.all(Object.values(postModules).map((load) => load()));
 
 const sortedPosts = allPosts
   .sort((a, b) => {
@@ -21,39 +22,43 @@ const sortedPosts = allPosts
   <h2 class="blog-posts-heading">
     制作日誌<span class="section-label">BLOG</span>
   </h2>
-  <div class="blog-posts-list">
-    {sortedPosts.map((post) => (
-      <article class="blog-post-item">
-        <a href={post.url}>
-          <h3 class="blog-post-item-title">{post.frontmatter.title}</h3>
-          <div class="blog-post-item-meta">
-            {post.frontmatter.pubDate && (
-              <span class="blog-post-item-date">
-                {new Date(post.frontmatter.pubDate).toLocaleDateString('ja-JP', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </span>
-            )}
-            {post.frontmatter.author && (
-              <span class="blog-post-item-author">{post.frontmatter.author}</span>
-            )}
-          </div>
-          {post.frontmatter.description && (
-            <p class="blog-post-item-description">{post.frontmatter.description}</p>
-          )}
-          {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
-            <div class="blog-post-item-tags">
-              {post.frontmatter.tags.map((tag) => (
-                <span class="blog-post-item-tag">{tag}</span>
-              ))}
+  {sortedPosts.length === 0 ? (
+    <p class="blog-posts-empty">まだ記事はありません。公開まで少々お待ちください。</p>
+  ) : (
+    <div class="blog-posts-list">
+      {sortedPosts.map((post) => (
+        <article class="blog-post-item">
+          <a href={post.url}>
+            <h3 class="blog-post-item-title">{post.frontmatter.title}</h3>
+            <div class="blog-post-item-meta">
+              {post.frontmatter.pubDate && (
+                <span class="blog-post-item-date">
+                  {new Date(post.frontmatter.pubDate).toLocaleDateString('ja-JP', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </span>
+              )}
+              {post.frontmatter.author && (
+                <span class="blog-post-item-author">{post.frontmatter.author}</span>
+              )}
             </div>
-          )}
-        </a>
-      </article>
-    ))}
-  </div>
+            {post.frontmatter.description && (
+              <p class="blog-post-item-description">{post.frontmatter.description}</p>
+            )}
+            {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+              <div class="blog-post-item-tags">
+                {post.frontmatter.tags.map((tag) => (
+                  <span class="blog-post-item-tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </a>
+        </article>
+      ))}
+    </div>
+  )}
   {showViewAll && (
     <div class="blog-posts-footer">
       <a href="/blog" class="blog-posts-view-all">一覧を見る →</a>
@@ -83,6 +88,16 @@ const sortedPosts = allPosts
     color: var(--color-text-muted);
     letter-spacing: 0.2em;
     margin-top: 8px;
+  }
+
+  .blog-posts-empty {
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    padding: 48px 24px;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-white);
   }
 
   .blog-posts-list {
